@@ -1,0 +1,11 @@
+<div ng-controller = 'NewQuestionController'>
+
+  <h1>New Question</h1>
+  Question: 
+  <textarea ng-model='new_question.q'></textarea>
+  Description(optional):
+  <textarea ng-model='new_question.des'></textarea>
+  <input type="submit" value="Cancel" ng-click='cancel()'>
+  <input type="submit" value='Submit' ng-click='create()'>
+  <p ng-bind='message.message' style="color: green"></p>
+</div>

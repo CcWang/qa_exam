@@ -1,0 +1,21 @@
+<div ng-controller = 'HomeController'>
+  <div>
+    Search: 
+    <input type="text" ng-model='filter_q'>
+    <table>
+      <tr>
+        <th>Question</th>
+        <th>Answers</th>
+        <th>Actions</th>
+      </tr>
+      <tr ng-repeat='q in questions | filter: filter_q | orderBy: "-_id"'>
+        <td>{{q.question}}</td>
+        <td>{{q.counter}}</td>
+        <td>
+          <a href="#/question/{{q._id}}">Show</a>
+          <a href="#/new_answer/{{q._id}}">Answer</a>
+        </td>
+      </tr>
+    </table>
+  </div> 
+</div>

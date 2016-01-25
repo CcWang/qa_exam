@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customers and Orders</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+  <script type="text/javascript">
+    var myApp = angular.module('myApp',["ngRoute"]);
+    myApp.config(function ($routeProvider){
+      $routeProvider
+        .when('/main', {
+          templateUrl:'/static/partials/home.html'
+        })
+        .when('/new_question',{
+          templateUrl: '/static/partials/new_question.html'
+        })
+        .when('/new_answer/:_id',{
+          templateUrl:'/static/partials/new_answer.html'
+        })
+        .when('/question/:id',{
+          templateUrl:'/static/partials/question_and_answer.html'
+        })
+        .otherwise({
+          redirectTo:'/main'
+        });
+    });
+  </script>
+  <script src="/controllerScript.js"></script>
+  <script src="/factoryScript.js"></script>
+<style type="text/css">
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+    }
+    div {
+      margin-top: 15px;
+    }
+    .products{
+      display: inline-block;
+
+    }
+    img{
+      width: 150px;
+      height: 150px;
+      padding: 2px;
+      margin: 5px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body ng-app='myApp'>
+  <a href="#/main"> Home</a> |
+  <a href="#/new_question">Add a Question</a> 
+  <div ng-controller = 'HomeController'>
+      <p ng-if='_user.user'>Welcome: 
+      <p ng-bind='_user.user'></p>
+
+  <button ng-if='_user.user' ng-click='logout()'>Log Out</button></p>
+
+  <div ng-view=''>
+    
+  </div>
+
+</body>
+</html>
